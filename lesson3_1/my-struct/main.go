@@ -2,29 +2,29 @@ package main
 
 import "fmt"
 
-type Product struct {
-	Name     string
-	Price    float64
-	Quantity int
-}
-
 func main() {
-	product := Product{
+	p1 := Product{
 		Name:     "Телефон",
 		Price:    14000.50,
+		Quantity: 0,
+	}
+
+	p1.PrintProduct()
+	fmt.Println("В наявності:", p1.IsAvailable())
+	fmt.Print("\n")
+
+	p2 := Product{
+		Name:     "Тостер",
+		Price:    1500,
 		Quantity: 2,
 	}
 
-	printProduct(product)
-
-	product.Name = "Тостер"
-	product.Price = 1500
-	printProduct(product)
-}
-
-func printProduct(p Product) {
-	fmt.Println("Назва:", p.Name)
-	fmt.Println("Ціна:", p.Price)
-	fmt.Println("Кількість:", p.Quantity)
+	p2.PrintProduct()
+	fmt.Println("В наявності:", p2.IsAvailable())
 	fmt.Print("\n")
+
+	fmt.Println("Тостер отримав знижку.")
+	fmt.Print("\n")
+	p2.ChangePrice(1200)
+	p2.PrintProduct()
 }
